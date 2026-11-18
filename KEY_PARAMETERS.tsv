@@ -1,0 +1,18 @@
+stage	key_parameters	check_in
+01_QC	decontX seed12345; contamination<=0.2; genes500..7500 inclusive; mt<20%; HB<5%	01_qc_doublets.R
+01_doublets	scDblFinder1.20.2; sample_id split; seed12345; default doublet rate	01_qc_doublets.R
+02_normalization	LogNormalize10000; VST3000; cell-cycle scoring; no regression; PCA50 seed12345	02_integrate_annotate.R
+02_integration	Harmony sample_id PC1:30 seed12345; resolution0.3 seed12345; UMAP cosine/min.dist0.2/neighbors30/seed42	02_integrate_annotate.R
+03_immune	VST3000/PCA50 seed42; Harmony PC1:20; k20; resolution1.2 seed1234; UMAP30/min.dist0.3/seed1234	03_immune_subclusters.R
+04_scores	RNA/data; nbin24; ctrl100; seed1; original scoring parents; complete60-test T BH family	04_signature_scores.R
+05_DE	IM minus MO; Wilcoxon; T/Mac min.pct0.1/logFC0; DC0.25/0.25; Mac seed20261031; BH returned genes	05_de_kegg.R
+05_ORA	full original RNA feature background intersect KEGG; first Entrez map; selected BH<0.05/absLFC>=0.25; GS10..500/BH/pcut1/qcut1	05_de_kegg.R
+05_Mac_GSEA	drop ambiguous symbols; Entrez dedup by absLFC; signed LFC ranks; seed20261031; eps0/nPermSimple10000/GS10..500	05_de_kegg.R
+06_expression_GSEA	mean expm1(RNA/data); descending expression/gene tie order; seed20261107; std/min15/max500/eps0/nPermSimple10000/sampleSize101	06_cluster_expression_gsea.R
+07_CopyKAT	original UMI/same-sample TNK reference; seed42; hg20; ngene.chr5; min.gene200; LOW0.05/UP0.1; win25/KS0.1; euclidean; cores4	07_epithelial_copykat.R
+08_tSNE	non-Harmony PCA1:25; perplexity30/theta0.5/iterations1000/seed1234/threads1	08_epithelial_state.R
+08_ITH_GSVA	malignant HVG3000; Pearson full upper-triangle/type7 IQR; Hallmark50 lesion mean logRNA/Gaussian/tau1/maxDiffTRUE/absRankingFALSE; BH50	08_epithelial_state.R
+09_trajectory	C2/C3/C5/C8/C11/C16/C19; detect0.1 in>=10; cluster q<0.01/top400; DDRTree seed unrecorded; historical reroot State3/Y_78	09_cd8_trajectory.R
+10_abundance	TNK/cleanTNK inclNK; myeloid/allMyeloid; targetT/cleanT exclNK; Spearman exactFALSE; globalBH703	10_abundance.R
+11_CellChat	29states17T/9Mac/3DC; triMean/rawTRUE/populationFALSE/nboot1000/seed1/Kh0.5/n1/min.cells10; noPPI/noDownsampling	11_cellchat.R
+12_similarity	full-library10000 normalization; fixed lineageHVG2000; >=50cells; log1p(mean nonlog); Pearson; median pairs/patient; exact28 allocations/tolerance1e-12	12_transcript_similarity.R

@@ -1,0 +1,17 @@
+signature	used_genes_n	reference	source	doi
+Chu14	14	Chu et al., 2023	Chu 2023，Supplementary Table 4：Exhaustion	10.1038/s41591-023-02371-y
+Ttex	97	Wo et al., 2026; Oliveira et al., 2021	Wo 2026 所用 Ttex 特征；原始特征来源 Oliveira 2021 Supplementary Table 8：Tumor-spec TTE	10.1186/s40164-026-00748-6; 10.1038/s41586-021-03704-y
+Tpex	97	Oliveira et al., 2021	Oliveira 2021，Supplementary Table 8：TPE	10.1038/s41586-021-03704-y
+TRM	80	Park et al., 2026	Park 2026，人类 TRM 特异性基因集	10.1038/s41590-025-02352-y
+Treg	24	Zheng et al., 2020	Zheng 2020，Supplementary Data 3：Treg signature	10.1038/s41467-020-20019-0
+Phagosome	73	Chen et al., 2026	Chen 2026，Supplementary Table 3：Phagosome	10.1038/s41416-026-03456-4
+M1_like	15	Chen et al., 2026	Chen 2026，Supplementary Table 3：M1-like	10.1038/s41416-026-03456-4
+IFNG_response	199	Liberzon et al., 2015	MSigDB Hallmark，Liberzon 2015：Interferon-gamma response	10.1016/j.cels.2015.12.004
+Antigen_presentation	81	Chen et al., 2026	Chen 2026，Supplementary Table 3：Antigen presentation	10.1038/s41416-026-03456-4
+Angiogenesis	25	Chen et al., 2026	Chen 2026，Supplementary Table 3：Angiogenesis	10.1038/s41416-026-03456-4
+MHC_I	33	MSigDB 2026.2.Hs; Gene Ontology	MSigDB 2026.2.Hs，GO:0002474	GO:0002474
+MHC_II	32	MSigDB 2026.2.Hs; Gene Ontology	MSigDB 2026.2.Hs，GO:0002504	GO:0002504
+DC_activation	39	Zheng et al., 2020	Zheng 2020，Supplementary Data 5：DC activation	10.1038/s41467-020-20019-0
+DC_tolerance	13	Zheng et al., 2020	Zheng 2020，Supplementary Data 5：DC tolerogenic	10.1038/s41467-020-20019-0
+EMT_Mes29	29	Zhang et al., 2021	Zhang 2021，Supplementary Data 5：Mes	10.1038/s41467-021-25539-x
+HCC10	10	Yang et al., 2025	Yang 2025 多灶肝癌研究所用十基因干性集合	10.1097/HEP.0000000000001191
